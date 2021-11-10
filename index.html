@@ -10,28 +10,49 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="my-telegram">
-                <div class="nickname-info">
-                    <label for="nickname">Name:</label>
-                    <input type="text" placeholder="Type your name" id="nickname">
-                    <button onclick="setNickname();">Save</button>
-                </div>
-                <div class="messages">
-                    <div class="message-list" id="message-list">
+    <header class="header">
+        <div class="container header_container">
+            <a href="#" class="header_link">About</a>
+            <a href="#" class="header_link">Films</a>
+            <a href="#" class="header_link">Favorite</a>
+            <a href="#" class="header_link">Contacts</a>
+        </div>
+    </header>
+    <main class="main">
+        <div class="wrapper">
+            <section class="search-and-filter">
+                <div class="container search_container">
+                    <div class="search">
+                        <input type="text" id="main-search" placeholder="Type here...">
+                        <button class="btn main-search-action">Search</button>
+                    </div>
+                    <div class="filter">
+                        <div class="dropdown-genre">
+                            <button onclick="filterDropdownGenre()" class="dropbtngenre">Genre</button>
+                            <div id="myDropdownGenre" class="dropdown-content-genre">
+                                <a href="#">Horror</a>
+                                <a href="#">Comedy</a>
+                                <a href="#">Fantastic</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-language">
+                            <div class="dropdown">
+                                <button onclick="filterDropdownLanguage()" class="dropbtnlanguage">Language</button>
+                                <div id="myDropdownLanguage" class="dropdown-content-language">
+                                    <a href="#">English</a>
+                                    <a href="#">Russian</a>
+                                    <a href="#">Ukrainian</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="type-window">
-                    <span class="loading" id="loading"></span>
-                    <label for="message">Message:</label>
-                    <input type="text" id="message" placeholder="Type your message">
-                    <button onclick="sendCheck();">Send</button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </section>
+            <section class="films">
 
+            </section>
+        </div>
+    </main>
 
 <script src="script.js"></script>
 

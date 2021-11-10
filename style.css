@@ -10,7 +10,13 @@ html{
 body{
     font-size: 14px;
     line-height: 1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; 
+    z-index: 1;
 }
 .wrapper{
     overflow: hidden;
@@ -22,65 +28,114 @@ a{
     text-decoration: none;
 }
 .container{
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0px 15px;
+   
+}
+.header{
+    background-color: #DCDCDC;
+}
+.header_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.header_link{
+    color: black;
+    font-size: 18px;
+    line-height: 21px;
+    margin: 44px 0;
+    margin-right: 20px;
+}
+.search_container{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: #0088cc;
-    flex-grow: 1;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
 }
-label{
-    display: block;
-    text-align: left;
-    margin-bottom: 10px;
-    
+.search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-input{
-    padding: 5px;
-    width: 100%;
-    margin-bottom: 10px;
+#main-search{
+    width: 445px;
+    border-radius: 30px 0 0 30px;
+    background-color: #DCDCDC;
+    border-width: 0px;
 }
-button{
-    padding: 5px;
+#main-search::placeholder{
+    padding-left: 15px;
+}
+.main-search-action{
+    padding: 20px 75px;
+    border-radius: 0 30px 30px 0;
+    background-color: #DCDCDC;
+    border-width: 0px;
     cursor: pointer;
 }
-.my-telegram{
-    width: calc(100% - 20px);
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid #987654;
-    border-radius: 5px;
+.main-search-action:hover{
+    background-color: burlywood;
 }
-.nickname-info, .messages, .type-window{
-    border-radius: 5px;
-    border: 1px solid #0088cc;
-    margin: 5px;
-    padding: 10px;
+.filter{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-top: 15px;
+}
+.dropbtngenre, .dropbtnlanguage {
+    background-color: #DBDBDB;
+    padding: 6px;
+    padding-left: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 125px;
     text-align: left;
+    margin-right: 15px;
 }
-.messages, .type-window{
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 100%;
-    text-align: left;
+.dropbtngenre:hover, .dropbtngenre:focus, .dropbtnlanguage:hover, .dropbtnlanguage:focus {
+    background-color: burlywood;
 }
-.loading{
+.dropdown-genre, .dropdown-language {
+    position: relative;
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: cyan;
-    border-radius: 50%;
 }
-.loading.on{
-    background: darkorchid;
+.dropdown-content-genre, .dropdown-content-language {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 125px;
+    overflow: auto;
+    margin-top: 3px;
+    border-radius: 10px;
 }
-.messages{
-    background-color: wheat;
-    margin: 10px;
+.dropdown-content-genre a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  
 }
-.message-list{
-    margin: 5px;
+.dropdown-content-language a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-genre a:hover {
+    background-color: #ddd;
+}
+.dropdown-language a:hover{
+    background-color: #ddd;
+}
+.showGenre {
+    display: block;
+}
+.showLanguage{
+    display: block;
 }
