@@ -1,0 +1,86 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+:before,
+::after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 14px;
+    line-height: 1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+}
+.wrapper{
+    overflow: hidden;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #0088cc;
+    flex-grow: 1;
+}
+label{
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    
+}
+input{
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+button{
+    padding: 5px;
+    cursor: pointer;
+}
+.my-telegram{
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #987654;
+    border-radius: 5px;
+}
+.nickname-info, .messages, .type-window{
+    border-radius: 5px;
+    border: 1px solid #0088cc;
+    margin: 5px;
+    padding: 10px;
+    text-align: left;
+}
+.messages, .type-window{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+    text-align: left;
+}
+.loading{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: cyan;
+    border-radius: 50%;
+}
+.loading.on{
+    background: darkorchid;
+}
+.messages{
+    background-color: wheat;
+    margin: 10px;
+}
+.message-list{
+    margin: 5px;
+}
