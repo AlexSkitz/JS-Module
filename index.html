@@ -9,52 +9,80 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="wrapper">
     <header class="header">
         <div class="container header_container">
-            <a href="#" class="header_link">About</a>
-            <a href="#" class="header_link">Films</a>
-            <a href="#" class="header_link">Favorite</a>
-            <a href="#" class="header_link">Contacts</a>
+            <button class="navigation__button">About</button>
+            <button class="navigation__button" id="films">Films</button>
+            <button class="navigation__button" id="favorite">Favorite</button>
+            <button class="navigation__button">Contacts</button>
         </div>
     </header>
     <main class="main">
-        <div class="wrapper">
-            <section class="search-and-filter">
-                <div class="container search_container">
-                    <div class="search">
-                        <input type="text" id="main-search" placeholder="Type here...">
-                        <button class="btn main-search-action">Search</button>
+        <section class="search container">
+            <div class="search-inner">
+                <input type="text" id="main-search" placeholder="Type here...">
+                <button class="main-search-action">Search</button>
+            </div>
+            <div class="filter">
+                <div class="filter-inner">
+                    <div class="genre-filter filter__item">
+                        <button class="filter__button" id="genre-filter__button">Genre</button>
+                        <ul class="filter__list" id="genre-filter"></ul>
                     </div>
-                    <div class="filter">
-                        <div class="dropdown-genre">
-                            <button onclick="filterDropdownGenre()" class="dropbtngenre">Genre</button>
-                            <div id="myDropdownGenre" class="dropdown-content-genre">
-                                <a href="#">Horror</a>
-                                <a href="#">Comedy</a>
-                                <a href="#">Fantastic</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-language">
-                            <div class="dropdown">
-                                <button onclick="filterDropdownLanguage()" class="dropbtnlanguage">Language</button>
-                                <div id="myDropdownLanguage" class="dropdown-content-language">
-                                    <a href="#">English</a>
-                                    <a href="#">Russian</a>
-                                    <a href="#">Ukrainian</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="language-filter filter__item">
+                        <button class="filter__button" id="language-filter__button">Language</button>
+                        <ul class="filter__list" id="language-filter"></ul>
+                    </div>
+                    <div class="per-page-filter filter__item">
+                        <button class="filter__button" id="per-page-filter__button">Per Page</button>
+                        <ul class="filter__list" id="per-page-filter">
+                            <li data="10">10</li>
+                            <li data="25">25</li>
+                            <li data="50">50</li>
+                            <li data="100">100</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            <section class="films">
+            </div>
+        </section>
+        <section class="films-list container">
+            <div class="films-lis-inner">
+            </div>
+        </section>
+        <section class="modal-window-section fadeOut container">
+            <div class="modal-window fadeOut">
+                <div class="modal-close"></div>
+                <div class="modal-image"></div>
+                <div class="modal-title-outer">
+                    <div class="modal-title-inner">
+                        <span class="modal-title">Film name: <span id="modal-film-name"></span></span>
+                        <span class="modal-title">Film genre: <span id="modal-film-genre"></span></span>
+                        <span class="modal-title">Film language: <span id="modal-film-language"></span></span>
+                        <span class="modal-title">Film description: </span>
+                        <div id="modal-film-description"></div>
+                    </div>
+                </div>
 
-            </section>
-        </div>
+            </div>
+        </section>
+        <section class="pagination container">
+            <div class="pagination-container">
+                <button class="pagination-button" id="pagination-prev-button">Prev</button>
+                <div class="pagination-bar" id="pagination-bar">
+                    <div class="pagination-info">
+                        <span id="pagination-page">1</span>
+                        from
+                        <span id="pagination-pages">10</span>
+                    </div>
+                    <ul class="hide" id="pagination-list"></ul>
+                </div>
+                <button class="pagination-button" id="pagination-next-button">Next</button>
+            </div>
+        </section>
     </main>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
