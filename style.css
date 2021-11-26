@@ -201,18 +201,18 @@ a {
     padding: 18px 0;
 }
 
-/*
-.result_panel .row {
+
+.result-window .row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.result_panel .col {
+.result-window .col {
     width: 20%;
     padding: 10px;
 }
 
-.result_itm {
+.result-elem {
     width: 100%;
     padding-top: 140%;
     background: #DCDCDC;
@@ -221,7 +221,7 @@ a {
     overflow: hidden;
 }
 
-.res-img {
+.result-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -229,7 +229,7 @@ a {
     right: 0;
 }
 
-.res_favorite {
+.favorite-elem {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -241,11 +241,11 @@ a {
     background-size: 50%;
 }
 
-.res_favorite.saved {
+.favorite-elem.save {
     background: url(images/heart-red.svg) no-repeat center #ffffff40;
     background-size: 50%;
 }
-*/
+
 
 
 .pagination {
