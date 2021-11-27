@@ -103,10 +103,5 @@
        id="path7"
        sodipodi:nodetypes="ccccccc"
        style="fill:#e60000;fill-opacity:1;stroke:black;stroke-width:18.70000076;stroke-miterlimit:4;stroke-opacity:1" />
-    <path
-       d="M 274.28571,257.16518 C 216.32604,257.16518 169.28571,304.2055 169.28571,362.16518 C 169.28571,480.07558 288.20428,511.00394 369.25446,627.57143 C 375.81439,617.65348 229.28571,482.04452 229.28571,382.16518 C 229.28571,324.2055 276.32604,277.16518 334.28571,277.16518 C 334.79024,277.16518 335.28289,277.22055 335.78571,277.22768 C 318.51007,264.64429 297.29128,257.16517 274.28571,257.16518 z "
-       id="path220"
-       sodipodi:nodetypes="ccccccc"
-       style="fill:#e6e6e6;fill-opacity:0.64556963;stroke:none;stroke-width:18.70000076;stroke-miterlimit:4;stroke-opacity:1" />
-  </g>
+   </g>
 </svg>

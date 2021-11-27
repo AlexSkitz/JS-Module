@@ -27,18 +27,22 @@ const filmData = (page) => {
 
 const filmsSearch = () => {
     let searchField = document.getElementById("main-search");
-    if (searchField.ariaValueMax.length < 0) {
+    if (searchField.value.length < 0) {
         return;
     }
+
+    const url = `http://api.tvmaze.com/search/shows?q=${searchField.value}`;
+    
     searchField.value = '';
-    fetch(`http://api.tvmaze.com/search/shows?q=${search_text.value}`)
+
+    fetch(url)
         .then(response => response.json())
         .then((jsonData) => {
             if (jsonData.length > 0) {
                 let filter = document.querySelector(".filter");
                 filter.classList.add("hide");
                 let convertData = [];
-                convertData = jsonData.map(elem => elemm.show);
+                convertData = jsonData.map(elem => elem.show);
                 createResultList(convertData);
             }
         });
@@ -64,6 +68,12 @@ const createFilter = (jsonData) => {
         li.innerText = langFilter[key];
         langFilterList.append(li);
     };
+    genreFilterList.innerHTML = '<li class ="filter_li_ti"> Genre</li>';
+    for(let key in genreFilter){
+        let li = document.createElement('li');
+        li.innerText = genreFilter[key];
+        genreFilterList.append(li);
+    }
 }
 
 const createResultList = (jsonData) => {
@@ -98,7 +108,7 @@ const createResultList = (jsonData) => {
         lastElem = myVariables.itemOnPage;
     }
 
-    for (let showWindow = 1; pagi < windowAmount + 1; showWindow++) {
+    for (let showWindow = 1; showWindow < windowAmount + 1; showWindow++) {
 
         let domWindow = document.createElement("div");
         domWindow.className = "hide result-window";
@@ -116,7 +126,7 @@ const createResultList = (jsonData) => {
             domElem.className = "result-elem";
             let domFavorite = document.createElement("div");
             domFavorite.className = "favorite-elem";
-            omFavorite.setAttribute('id_film', jsonData[elem].id);
+            domFavorite.setAttribute('id_film', jsonData[elem].id);
             if (myStorage.getItem(`id=${domFavorite.getAttribute('id_film')}`)) {
                 domFavorite.classList.add("save");
             }
@@ -179,7 +189,7 @@ const getFilmsPage = (page, filter = { lang: false, genre: false }) => {
             if (langFilter !== 'Lang') {
                 filteredLang = jsonData.filter(elem => elem.language === langFilter);
             } else {
-                filteredLang = jsonDatal
+                filteredLang = jsonData;
             }
 
             if (genreFilter !== 'Genre') {
@@ -211,15 +221,6 @@ const setItemsPerPage = (event) => {
     getFilmsPage(myVariables.loading);
 }
 
-const setWindow = (currentPage, newPage) => {
-
-    let thisWindow = document.querySelector(`.result-window[data=${currentPage}]`);
-    let showedWindow = document.querySelector(`.result-window[data=${newPage}]`);
-    thisWindow.classList.add("hide");
-    showWindow.classList.remove("hide");
-    document.getElementById("pagination-page").innerText = newPage;
-}
-
 const setWindowByInc = (inc) => {
     if ((myVariables.currentPaginationPage + inc) < 1) {
         return;
@@ -244,6 +245,15 @@ const setWindowByPage = (event) => {
     let newPage = +target.innerText;
 
     setWindow(currentPage, newPage);
+}
+
+const setWindow = (currentPage, newPage) => {
+
+    let thisWindow = document.querySelector(`.result-window[data="${currentPage}"]`);
+    let showedWindow = document.querySelector(`.result-window[data="${newPage}"]`);
+    thisWindow.classList.add("hide");
+    showedWindow.classList.remove("hide");
+    document.getElementById("pagination-page").innerText = newPage;
 }
 
 document.getElementById("genre-filter").onclick = (event) => setFilter(event, "genre-filter__button");

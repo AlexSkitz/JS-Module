@@ -5,7 +5,7 @@ html {
 *,
 :before,
 ::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -14,10 +14,17 @@ body {
     font-family: 'Roboto', sans-serif;
     overflow-y: overlay;
     margin: 0;
+    background-color: cornflowerblue;
 }
 
 .wrapper {
-    overflow: hidden;
+    overflow: visible;
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
@@ -35,8 +42,9 @@ a {
 
 }
 
-.header {
+header {
     background-color: #DCDCDC;
+    width: 100%
 }
 
 .header_container {
@@ -55,7 +63,7 @@ a {
     text-decoration: none;
     transition: 0.4s;
     padding: 5px 10px;
-    margin: 40px 0px;
+    margin: 25px 0px;
     border-style: none;
     border-radius: 5px;
     cursor: pointer;
@@ -199,6 +207,8 @@ a {
 
 .films-list {
     padding: 18px 0;
+    min-width: 1000px;
+    max-width: 1000px;
 }
 
 
@@ -233,20 +243,15 @@ a {
     position: absolute;
     width: 40px;
     height: 40px;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    background: url(images/heart-wh.svg) no-repeat center #ffffff40;
-    background-size: 50%;
+    background: url(images/heart-wh.svg) no-repeat center;
 }
 
 .favorite-elem.save {
-    background: url(images/heart-red.svg) no-repeat center #ffffff40;
-    background-size: 50%;
+    background: url(images/heart-red.svg) no-repeat center rgba(255, 255, 255, 0);
+    background-size: 100%;
 }
-
-
 
 .pagination {
     padding: 18px 0;
@@ -264,16 +269,34 @@ a {
     border-radius: 5px;
     margin: 0 15px;
     background-color: #DCDCDC;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.pagination-button:hover {
+    background-color: darkkhaki;
+}
+
+#pagination-prev-button {
+    background: url(images/arr-left.svg) no-repeat center;
+}
+
+#pagination-next-button {
+    background: url(images/arr-right.svg) no-repeat center;
 }
 
 .pagination-bar {
     position: relative;
 }
 
+.pagination-info {
+    cursor: pointer;
+}
+
 ul#pagination-list {
     list-style: none;
     position: absolute;
-    width: 100%;
+    width: 80px;
     background-color: #fff;
     border: 1px solid #DCDCDC;
     max-height: 50vh;
@@ -284,6 +307,8 @@ ul#pagination-list {
 ul#pagination-list li {
     padding: 5px 0;
     border-bottom: 1px solid #DCDCDC;
+    cursor: pointer;
+    text-align: center;
 }
 
 .modal-window-section {
@@ -319,6 +344,7 @@ ul#pagination-list li {
     position: absolute;
     top: 5px;
     right: 5px;
+    cursor: pointer;
 }
 
 .modal-image {
